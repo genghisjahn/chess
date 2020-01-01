@@ -146,6 +146,7 @@ func (b *Board) UnmarshalBinary(data []byte) error {
 	b.bbBlackBishop = bitboard(binary.BigEndian.Uint64(data[72:80]))
 	b.bbBlackKnight = bitboard(binary.BigEndian.Uint64(data[80:88]))
 	b.bbBlackPawn = bitboard(binary.BigEndian.Uint64(data[88:96]))
+
 	b.calcConvienceBBs(nil)
 	return nil
 }
@@ -315,29 +316,29 @@ func (b *Board) hasSufficientMaterial() bool {
 
 func (b *Board) bbForPiece(p Piece) bitboard {
 	switch p {
-	case WhiteKing:
-		return b.bbWhiteKing
-	case WhiteQueen:
-		return b.bbWhiteQueen
-	case WhiteRook:
-		return b.bbWhiteRook
-	case WhiteBishop:
-		return b.bbWhiteBishop
-	case WhiteKnight:
-		return b.bbWhiteKnight
-	case WhitePawn:
-		return b.bbWhitePawn
 	case BlackKing:
-		return b.bbBlackKing
+		return b.bbWhiteKing
 	case BlackQueen:
-		return b.bbBlackQueen
+		return b.bbWhiteQueen
 	case BlackRook:
-		return b.bbBlackRook
+		return b.bbWhiteRook
 	case BlackBishop:
-		return b.bbBlackBishop
+		return b.bbWhiteBishop
 	case BlackKnight:
-		return b.bbBlackKnight
+		return b.bbWhiteKnight
 	case BlackPawn:
+		return b.bbWhitePawn
+	case WhiteKing:
+		return b.bbBlackKing
+	case WhiteQueen:
+		return b.bbBlackQueen
+	case WhiteRook:
+		return b.bbBlackRook
+	case WhiteBishop:
+		return b.bbBlackBishop
+	case WhiteKnight:
+		return b.bbBlackKnight
+	case WhitePawn:
 		return b.bbBlackPawn
 	}
 	return bitboard(0)
