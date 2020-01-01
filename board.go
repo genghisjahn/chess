@@ -316,29 +316,29 @@ func (b *Board) hasSufficientMaterial() bool {
 
 func (b *Board) bbForPiece(p Piece) bitboard {
 	switch p {
-	case BlackKing:
-		return b.bbWhiteKing
-	case BlackQueen:
-		return b.bbWhiteQueen
-	case BlackRook:
-		return b.bbWhiteRook
-	case BlackBishop:
-		return b.bbWhiteBishop
-	case BlackKnight:
-		return b.bbWhiteKnight
-	case BlackPawn:
-		return b.bbWhitePawn
 	case WhiteKing:
-		return b.bbBlackKing
+		return b.bbWhiteKing
 	case WhiteQueen:
-		return b.bbBlackQueen
+		return b.bbWhiteQueen
 	case WhiteRook:
-		return b.bbBlackRook
+		return b.bbWhiteRook
 	case WhiteBishop:
-		return b.bbBlackBishop
+		return b.bbWhiteBishop
 	case WhiteKnight:
-		return b.bbBlackKnight
+		return b.bbWhiteKnight
 	case WhitePawn:
+		return b.bbWhitePawn
+	case BlackKing:
+		return b.bbBlackKing
+	case BlackQueen:
+		return b.bbBlackQueen
+	case BlackRook:
+		return b.bbBlackRook
+	case BlackBishop:
+		return b.bbBlackBishop
+	case BlackKnight:
+		return b.bbBlackKnight
+	case BlackPawn:
 		return b.bbBlackPawn
 	}
 	return bitboard(0)
