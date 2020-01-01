@@ -146,7 +146,6 @@ func (b *Board) UnmarshalBinary(data []byte) error {
 	b.bbBlackBishop = bitboard(binary.BigEndian.Uint64(data[72:80]))
 	b.bbBlackKnight = bitboard(binary.BigEndian.Uint64(data[80:88]))
 	b.bbBlackPawn = bitboard(binary.BigEndian.Uint64(data[88:96]))
-
 	b.calcConvienceBBs(nil)
 	return nil
 }
